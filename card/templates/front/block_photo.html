@@ -1,0 +1,20 @@
+{% load mediapath %}
+{% for object in history %}
+    <section class="blog" id="blog" style="background-image: url({% mediapath object.img %})">
+        <div class="work_zone_blog">
+            <div class="wright_blog wow animate__animated animate__fadeInDown">
+                <div class="blog_title_and_desc">
+                    <h2 class="wow animate__animated animate__bounceInLeft">
+                        {{ object.name|title|truncatechars:100 }}
+                    </h2>
+                    <hr>
+                    <p class="wow animate__animated animate__bounceInUp">
+                        {{ object.description|title }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endfor %}
+
+

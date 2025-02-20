@@ -1,0 +1,28 @@
+{% load mediapath %}
+{% load random %}
+<section class="why" id="why">
+    <div class="work_zone_why">
+        <div class="zone_info">
+            <div class="title_why">
+                <h2>Где
+                    остановиться?</h2>
+            </div>
+            <div class="list_why">
+                {% for object in whystop|slice:"4" %}
+                    <div class="why_item wow animate__animated animate__fadeInRight">
+                        <div class="item_img"
+                             style="background-image: url({% mediapath object.img %})">
+                            <div class="down_menu">
+                                <a href="{{ object.address|truncatechars:100 }} ">
+                                    <p>
+                                        {{ object.name|title|truncatechars:100 }}
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

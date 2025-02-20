@@ -1,0 +1,177 @@
+<style>
+    .section {
+        background-color: #bcbebf;
+    }
+
+    .section__button {
+        background-color: transparent;
+        border: 2px solid white;
+        color: white;
+        font-weight: 700;
+        padding: 10px 20px;
+        cursor: pointer;
+        outline: 2px solid transparent;
+        outline-offset: 3px;
+        transition: background-color .2s ease-in-out, color .2s ease-in-out;
+    }
+
+    .section__button:hover {
+        background-color: #fff;
+        color: black;
+    }
+
+    .section__button:focus-visible {
+        outline-color: yellow;
+    }
+
+    .modal {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        padding: 30px;
+        overflow-y: auto;
+        display: none;
+    }
+
+    .modal__main {
+        position: relative;
+        max-width: 600px;
+        background-color: azure;
+        margin: auto;
+        color: #000;
+        border-radius: 16px;
+        padding: 30px;
+        cursor: default;
+    }
+
+    .modal__title {
+        margin-bottom: 30px;
+    }
+
+    .modal__close {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 22px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        outline: 1px solid transparent;
+        outline-offset: 3px;
+        transition: outline-color .15s ease-in-out;
+        border-radius: 3px;
+        padding: 0;
+        text-align: center;
+        display: block;
+        width: 30px;
+        height: 30px;
+
+    }
+
+    .modal__close:focus-visible {
+        outline-color: green;
+    }
+
+
+</style>
+
+<body>
+<section class="section">
+    <h1 class="section__title">Модальное окно</h1>
+    <button class="section__button section__button1">Открыть</button>
+</section>
+
+<section class="section">
+    <h1 class="section__title">Модальное окно</h1>
+    <button class="section__button section__button2">Открыть 2</button>
+</section>
+
+<div class="modal modal1">
+    <div class="modal__main">
+        <h2 class="modal__title">Модальное окно</h2>
+
+        <div class="modal__container">
+            <p>Lorenasd asd asd asd asd asd a</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias et perferendis sapiente tempora velit.
+                Animi hic libero minus rem temporibus. Animi at culpa delectus dignissimos dolor dolorem laborum neque
+                nobis. Aperiam corporis delectus dolor enim error ex facilis fugiat id iste laboriosam mollitia neque
+                nihil quam quia, quisquam, saepe sequi?</p>
+        </div>
+
+        <button class="modal__close">&#10006;</button>
+
+    </div>
+</div>
+
+<div class="modal modal2">
+    <div class="modal__main">
+        <h2 class="modal__title">Модальное окно 2</h2>
+
+        <div class="modal__container">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium aperiam earum enim excepturi
+                harum iusto nobis provident quia, suscipit?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias et perferendis sapiente tempora velit.
+                Animi hic libero minus rem temporibus. Animi at culpa delectus dignissimos dolor dolorem laborum neque
+                nobis. Aperiam corporis delectus dolor enim error ex facilis fugiat id iste laboriosam mollitia neque
+                nihil quam quia, quisquam, saepe sequi?</p>
+        </div>
+
+        <button class="modal__close">&#10006;</button>
+
+    </div>
+</div>
+</body>
+<script>
+    const modalController = ({modal, btnOpen, btnClose, time = 300}) => {
+        const buttonElems = document.querySelectorAll(btnOpen);
+        const modalElem = document.querySelector(modal);
+
+        modalElem.style.cssText = `
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility ${time}ms, opacity ${time}ms ease-in-out;
+    `;
+
+
+        const closeModal = event => {
+            const target = event.target;
+            if (
+                target === modalElem ||
+                (btnClose && target.closest(btnClose)) ||
+                event.code === 'Escape'
+            ) {
+                modalElem.style.opacity = 0;
+                setTimeout(() => {
+                    modalElem.style.visibility = 'hidden';
+                }, time);
+                window.removeEventListener('keydown', closeModal);
+            }
+        };
+
+        const openModal = () => {
+            modalElem.style.visibility = 'visible';
+            modalElem.style.opacity = 1;
+            window.addEventListener('keydown', closeModal)
+        };
+
+        buttonElems.forEach(btn => {
+            btn.addEventListener('click', openModal);
+        });
+
+        modalElem.addEventListener('click', closeModal);
+    };
+
+    modalController({
+        modal: '.modal1',
+        btnOpen: '.section__button1',
+        btnClose: '.modal__close',
+        time: 1000,
+    });
+    modalController({
+        modal: '.modal2',
+        btnOpen: '.section__button2',
+        btnClose: '.modal__close',
+    });
+</script>

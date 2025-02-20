@@ -1,0 +1,95 @@
+<style>
+
+    .block_question {
+        margin: auto;
+        width: 90%;
+        height: 100%;
+    }
+
+    .block_questions_2 {
+        margin: auto;
+        width: 80%;
+    }
+
+    .faq {
+        width: 100%;
+
+    }
+
+    details {
+        margin: auto;
+        width: 80%;
+        margin-top: 2%;
+        background-color: white;
+        border: 4px solid black;
+        border-radius: 4px;
+        padding: 0.5em;
+        margin-bottom: 1em;
+        transition: background-color 0.3s ease; /* Плавный переход для фона */
+    }
+
+    summary {
+        font-weight: bold;
+        cursor: pointer;
+        display: flex; /* Используем flexbox для выравнивания */
+        justify-content: space-between; /* Размещаем элементы по краям */
+        align-items: center; /* Центрируем по вертикали */
+        list-style: none; /* Убирает стандартный маркер */
+    }
+
+    summary::-webkit-details-marker {
+        display: none; /* Скрывает стрелку в WebKit-браузерах */
+    }
+
+    .toggle-icon {
+        font-size: 150%;
+        margin-left: 10px; /* Отступ между текстом и иконкой */
+        transition: transform 0.3s ease; /* Плавный переход для вращения */
+    }
+
+    details[open] .toggle-icon {
+        transform: rotate(45deg); /* Вращаем на 45 градусов при открытом состоянии */
+    }
+
+    details[open] {
+        background-color: #EBEBEB;;
+
+    }
+
+    /* Добавление анимации для плавного открытия и закрытия */
+
+    details > p {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease; /* Плавный переход для высоты */
+    }
+
+    details[open] > p {
+        max-height: 350px; /* Установите максимальную высоту для анимации */
+    }
+</style>
+
+<section class="block_question">
+    <div class="block_questions_2">
+        <div class="faq wow animate__animated animate__fadeInUpBig">
+            {% for object in question %}
+                <details class="wow animate__animated animate__fadeInUpBig">
+                    <summary>
+                        {{ object.question }}
+                        <span class="toggle-icon">+</span>
+                    </summary>
+                    <p>{{ object.answer }}.</p>
+                </details>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll('details').forEach(detail => {
+        detail.addEventListener('toggle', () => {
+            const icon = detail.querySelector('.toggle-icon');
+            icon.textContent = detail.open ? '-' : '+';
+        });
+    });
+</script>

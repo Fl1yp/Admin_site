@@ -1,0 +1,108 @@
+<style>
+    .main_front_list {
+        width: 100%;
+        height: 800px;
+        background-image: url("/media/img.webp");
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .work_main_front_list {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .work_zone_work_main_front_list {
+        width: 80%;
+        height: 80%;
+        display: flex;
+    }
+
+    .r_work_zone_work_main_front_list, .l_work_zone_work_main_front_list {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .title_l_work_zone_work_main_front_list {
+        width: 90%;
+        height: 90%;
+        display: flex;
+        align-items: center;
+    }
+
+    .title_l_work_zone_work_main_front_list h1 {
+        font-size: calc(var(--index) * 3);
+        color: cornsilk;
+    }
+
+    .img_l_work_zone_work_main_front_list {
+        display: flex;
+        align-items: center;
+        width: 90%;
+        height: 90%;
+        transition: transform 0.2s ease; /* Плавный переход */
+    }
+
+    .img_l_work_zone_work_main_front_list img {
+        width: 100%;
+        height: auto;
+        transition: .2s;
+    }
+
+    @media (max-width: 450px) {
+        .work_zone_work_main_front_list {
+            width: 95%;
+            height: 95%;
+        }
+         .img_l_work_zone_work_main_front_list img{
+             height: 40%;
+         }
+    }
+</style>
+<section class="main_front_list">
+    <div class="work_main_front_list">
+        <div class="work_zone_work_main_front_list">
+            <div class="r_work_zone_work_main_front_list">
+                <div class="title_l_work_zone_work_main_front_list wow animate__animated animate__backInLeft">
+                    <h1>Россошь - город Воинской славы и Доблести</h1>
+                </div>
+            </div>
+            <div class="l_work_zone_work_main_front_list ">
+                <div class="img_l_work_zone_work_main_front_list wow animate__animated animate__backInRight">
+                    <img src="/media/img_11.png" alt="ph" id="image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const imgContainer = document.querySelector('.img_l_work_zone_work_main_front_list');
+    const img = document.getElementById('image');
+
+    imgContainer.addEventListener('mousemove', (e) => {
+        const {offsetX, offsetY} = e;
+        const {clientWidth, clientHeight} = imgContainer; // Используем imgContainer, а не target
+
+        // Рассчитываем смещение
+        const x = (offsetX / clientWidth) * -150 + 50; // Смещение по X
+        const y = (offsetY / clientHeight) * -150 + 50; // Смещение по Y
+
+        // Применяем трансформацию
+        img.style.transform = `translate(${x}px, ${y}px)`; // Используйте обратные кавычки для шаблонных строк
+    });
+
+    imgContainer.addEventListener('mouseleave', () => {
+        img.style.transform = 'translate(0, 0)'; // Возвращаем в исходное положение
+    });
+</script>
+

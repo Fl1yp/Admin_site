@@ -1,0 +1,69 @@
+<style>
+    .form_input_call {
+        height: 100%;
+    }
+
+    .form_input_calls input {
+        width: 100%;
+        height: 35px;
+        outline: none
+    }
+
+    .form_input_calls input[type="text"]:focus {
+        background-color: antiquewhite;
+    }
+
+    .form_input_calls input::placeholder {
+        opacity: 1; /* Плейсхолдер видимый по умолчанию */
+        transition: opacity 0.3s ease; /* Плавный переход */
+    }
+
+    .form_input_calls input:focus::placeholder {
+        opacity: 0; /* Плейсхолдер исчезает при фокусе */
+    }
+
+
+    .form_input_call button {
+        margin-top: 10%;
+    }
+
+    .btn_call {
+        width: 100%;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+</style>
+<section class="feat_back" id="feat_back">
+    <div class="feat_back_work_zone">
+        <div class="block_forms">
+            <div class="left_form">
+                <div class="left_form_work">
+                    <div class="forms_left">
+                        <div class="work_input">
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="form_input_call">
+                                    <div class="form_input_calls">
+                                        <p>{{ form.as_p }}</p>
+                                    </div>
+                                    <div class="btn_call">
+                                        <button type="submit">
+                                            Отправить
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right_form">
+                <img src="/media/img.png" alt="PH">
+            </div>
+        </div>
+    </div>
+</section>

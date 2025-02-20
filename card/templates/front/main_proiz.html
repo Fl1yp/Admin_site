@@ -1,0 +1,137 @@
+<style>
+    .main_proiz {
+        width: 100%;
+        height: auto;
+        background-image: url("/media/bg/img_1.webp");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        box-shadow: inset 0 50px 50px white, inset 0 -50px 50px #f2f2f2;
+
+    }
+
+    .main_proiz_work {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .work_zone_proiz {
+        width: 80%;
+        height: 80%;
+    }
+
+    .work_zone_proiz h1 {
+        text-align: center;
+        font-size: calc(var(--index) * 2);
+    }
+
+    .list_proiz {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-around; /* измените на flex-start */
+        flex-wrap: wrap;
+    }
+
+
+    .item_proiz {
+        width: 30%; /* проверьте ширину */
+        height: 300px; /* измените на auto */
+        margin: 10px;
+        display: flex;
+        flex-direction: column; /* добавьте для вертикального выравнивания содержимого */
+        justify-content: center;
+        align-items: center;
+        background-color: #EBEBEB;
+        border-radius: 50px;
+        transition: .5s;
+        border: 3px solid black;
+    }
+
+
+    .work_zone_card {
+        width: 100%;
+        height: 95%;
+    }
+
+    .img_proiz {
+        margin: auto;
+        width: 85%;
+        height: 50%;
+        background-color: #36373c;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 25px;
+    }
+
+    .img_proiz img {
+        width: 100%;
+        height: 100%;
+        transition: .5s;
+    }
+
+    .img_proiz img:hover, .img_proiz img:active {
+        transform: rotate(5deg) scale(1.3);
+        transition: .5s;
+    }
+
+    .title_proiz {
+        width: 100%;
+        height: 10%;
+        margin: auto;
+    }
+
+    .title_proiz h1 {
+        font-size: calc(var(--index) * .7);
+        margin-top: 5%;
+    }
+
+    .desc_proiz {
+        margin: auto;
+        width: 90%;
+        height: 37%;
+    }
+
+    .desc_proiz p {
+        text-align: center;
+        font-size: calc(var(--index) * .55);
+    }
+
+    .item_proiz:hover, .item_proiz:active {
+        box-shadow: 39px 31px 19px -9px rgba(0, 0, 0, 0.3);
+        transition: .5s;
+        transform: scale(1.1)
+    }
+
+</style>
+{% load mediapath %}
+<section class="main_proiz">
+    <div class="main_proiz_work">
+        <div class="work_zone_proiz">
+            <h1>Наши основные сельхоз. производители</h1>
+
+            <div class="list_proiz">
+                {% for object in proiz %}
+                    <div class="item_proiz">
+                        <div class="work_zone_card">
+                            <div class="img_proiz">
+                                <img src="{% mediapath object.img %}" alt="img">
+                            </div>
+                            <div class="title_proiz">
+                                <h1>{{ object.name|title|truncatechars:100 }}</h1>
+                            </div>
+                            <div class="desc_proiz">
+                                <p>{{ object.description|title|truncatechars:200 }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

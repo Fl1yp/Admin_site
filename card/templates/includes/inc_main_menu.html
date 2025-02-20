@@ -1,0 +1,144 @@
+{#<div class="header">#}
+{#    <div class="menu">#}
+{#        <ul class="menu-list">#}
+{#            <div class="menu-item">#}
+{#                <a href="{% url 'card:main' %}#history">История</a>#}
+{#            </div>#}
+{#            <div class="menu-item">#}
+{#                <a href="{% url 'card:main' %}#blog">Блог</a>#}
+{#            </div>#}
+{#            <div class="menu-item">#}
+{#                <a href="{% url 'card:main' %}#why">Что и где?</a>#}
+{#            </div>#}
+{#            <div class="menu-item">#}
+{#                <a href="{% url 'card:main' %}#relax_zone">Зоны отдыха</a>#}
+{#            </div>#}
+{#            <div class="menu-item">#}
+{#                <a href="{% url 'card:main' %}#why_me">Почему мы?</a>#}
+{#            </div>#}
+{#            <div class="menu-item">#}
+{#                <a href="{% url 'card:main' %}#feat_back">Связь с нами</a>#}
+{#            </div>#}
+{#        </ul>#}
+{#    </div>#}
+{#</div>#}
+
+<style>
+
+    .sidenav {
+        height: 100%; /* 100% Full-height */
+        width: 0; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 999; /* Stay on top */
+        top: 0;
+        left: 0;
+        background-color: #111; /* Black*/
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 60px; /* Place content 60px from the top */
+        transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    }
+
+    /* The navigation menu links */
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    /* When you mouse over the navigation links, change their color */
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
+    /* Position and style the close button (top right corner) */
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+    #main {
+        transition: margin-left .5s;
+        padding: 20px;
+        background-color: black;
+        color: #bcbebf;
+    }
+
+    #menuButton {
+        z-index: 999;
+        position: fixed;
+        color: black;
+        cursor: pointer;
+        background-color: #f2f2f2;
+        border-radius: 10px;
+        transition: 0.5s;
+        padding: 5px 10px; /* Изменено для лучшего отображения */
+        display: inline-block; /* Изменено для предотвращения растяжения */
+        margin-top: 20px; /* Добавлен отступ сверху для лучшего расположения */
+        border: 2px solid black;
+    }
+
+    #menuButton:hover {
+        background-color: #818181;
+        color: white;
+        transition: 0.5s;
+    }
+
+    .no-scroll {
+        overflow: hidden; /* Отключает прокрутку */
+        height: 100%;
+    }
+
+    /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+    @media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+    }
+</style>
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="{% url 'card:main' %}#history">История</a>
+    <a href="{% url 'card:main' %}#blog">Блог</a>
+    <a href="{% url 'card:main' %}#why">Что и где?</a>
+    <a href="{% url 'card:main' %}#relax_zone">Зоны отдыха</a>
+    <a href="{% url 'card:main' %}#why_me">Почему мы?</a>
+    <a href="{% url 'card:main' %}#feat_back">Связь с нами</a>
+    <a href="#map">Карта</a>
+
+</div>
+
+<!-- Use any element to open the sidenav -->
+<div id="main">
+    <span id="menuButton" onclick="openNav()">Меню</span>
+</div>
+
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        document.getElementById("menuButton").style.display = "none"; // Скрываем кнопку
+        document.body.classList.add('no-scroll'); // Добавляем класс для блокировки прокрутки
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        document.body.style.backgroundColor = "white";
+        document.getElementById("menuButton").style.display = "inline-block"; // Показываем кнопку
+        document.body.classList.remove('no-scroll'); // Убираем класс для разблокировки прокрутки
+    }
+</script>
