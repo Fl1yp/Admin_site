@@ -1,0 +1,204 @@
+@media (max-width: 1200px) {
+    .wright_blog {
+        height: 40% !important;
+    }
+
+    .why_item:hover, .why_item:active {
+        width: 70%;
+        z-index: 10;
+    }
+}
+
+@media (max-width: 1000px) {
+    .block_forms {
+        width: 70% !important;
+    }
+
+    .why_me_work_zone {
+        height: 90% !important;
+    }
+}
+
+@media (max-width: 800px) {
+    .work_zone_proiz {
+        width: 90% !important;
+    }
+
+    .item_why_me {
+        height: 80% !important;
+    }
+
+    .block_forms {
+        height: 60% !important;
+    }
+
+    button {
+        padding: 9.25px 15px !important;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .block_forms {
+        height: 70% !important;
+    }
+
+    .slide__content h2 {
+        font-size: calc(var(--index) * 3);
+    }
+
+    .work_zone {
+        width: 90%;
+        font-size: calc(var(--index) * .8);
+    }
+
+    .why_me {
+        height: 500px;
+    }
+
+    .feat_back_work_zone {
+        width: 90%;
+        height: 60% !important;
+    }
+
+    .slider {
+        height: 700px;
+    }
+
+    .slide_hs0 {
+        background-image: url("/media/mob/mob.1.webp") !important;
+    }
+
+    .slide_hs2 {
+        background-image: url("/media/mob/mob.2.webp") !important;
+    }
+
+    .slide_hs3 {
+        background-image: url("/media/mob/mob.3.webp") !important;
+    }
+
+    .slide_hs4 {
+        background-image: url("/media/mob/mob.4.webp") !important;
+    }
+
+    .slide_hs5 {
+        background-image: url("/media/mob/mob.5.webp") !important;
+    }
+
+    .slide_hs6 {
+        background-image: url("/media/mob/mob.6.webp") !important;
+    }
+
+    .slide_hs7 {
+        background-image: url("/media/mob/mob.7.webp") !important;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .menu-list {
+        width: 90% !important;
+    }
+
+    .main_front_list {
+        height: 600px !important;
+    }
+
+    .item_proiz {
+        width: 45% !important;
+    }
+
+    .title_proiz h1 {
+        font-size: calc(var(--index) * .7) !important;
+    }
+
+    .desc_proiz p {
+        font-size: calc(var(--index) * .6) !important;
+    }
+
+    .why_item:hover .why_item:active {
+        width: 90%;
+        z-index: 10;
+
+    }
+
+    .down_menu p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 450px) {
+    .wright_blog {
+        width: 60%;
+        border-radius: 30px;
+    }
+
+    .blog_title_and_desc {
+        padding: 10px 10px;
+        width: 90%;
+        height: 90%;
+    }
+
+    .blog_title_and_desc h2 {
+        font-size: calc(var(--index) * 1.7);
+    }
+
+    .form_input_calls input {
+        height: 30px;
+    }
+
+
+    .slider-navigation > * {
+        border-radius: 7em;
+        width: 35px;
+        height: 35px;
+    }
+
+    .slide__content h2 {
+        font-size: calc(var(--index) * 2);
+    }
+
+    .block_forms {
+        width: 100% !important;
+        height: 80% !important;
+    }
+
+    button {
+        padding: 9.25px 15px !important;
+    }
+
+
+    .work_zone {
+        width: 95%;
+        height: 95%;
+    }
+
+    .item_why_me {
+        height: 55% !important;
+    }
+
+    .why_me {
+        height: 350px;
+    }
+
+    .item_why_me h2 {
+        font-size: 10px;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .item_proiz {
+        width: 100% !important;
+    }
+
+    .work_input input {
+        font-size: 10px;
+    }
+
+    .btns {
+        font-size: calc(var(--index) * .4);
+    }
+}
