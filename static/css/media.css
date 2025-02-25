@@ -201,4 +201,14 @@
     .btns {
         font-size: calc(var(--index) * .4);
     }
+
+    .title_proiz h1 {
+        font-size: calc(var(--index) * 1.3) !important;
+    }
+    .desc_proiz p{
+                font-size: calc(var(--index) * 1) !important;
+    }
+    .main_proiz{
+        background-size: auto;
+    }
 }
